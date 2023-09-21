@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
- user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+  user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
   subject do
     Post.new(author: user,
              title: 'Hi',
@@ -9,7 +9,6 @@ RSpec.describe Post, type: :model do
   end
   before { subject.save }
 
-  
   it 'Title should be present' do
     subject.title = nil
     expect(subject).to_not be_valid
@@ -24,18 +23,17 @@ RSpec.describe Post, type: :model do
     subject.likes_counter = 'm'
     expect(subject).to_not be_valid
   end
-  
+
   it 'Likes counter should be greated than or equal to zero' do
     subject.likes_counter = -1
     expect(subject).to be_invalid
-  end 
-  
+  end
+
   it 'comments counter should be an integer' do
     subject.comments_counter = 'm'
     expect(subject).to_not be_valid
   end
-  
-  
+
   it 'comments counter should be greated than or equal to zero' do
     subject.comments_counter = -1
     expect(subject).to be_invalid
@@ -58,5 +56,4 @@ RSpec.describe Post, type: :model do
       expect(subject.recent_comments).to eq subject.comments.order(created_at: :desc).limit(5)
     end
   end
-
 end
