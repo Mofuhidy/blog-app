@@ -1,7 +1,9 @@
-<a class="" href="<%= user_post_path(user_id: post.author_id, id: post.id) %>">
-    <span class=""><%= post.title %></span>
-    <span class=""><%= post.text %></span>
-    <span class="user-totalpost">Comments : <%= post.comments_counter %>, Likes : <%= post.likes_counter %></span>
+<a class="user-bio" href="<%= user_post_path(user_id: post.author_id, id: post.id) %>">
+    <div class="div">
+        <span class="post"><%= post.title %> <%= post.text %></span>
+        <span class="user-totalpost">Comments : <%= post.comments_counter %>, Likes : <%= post.likes_counter %></span>
+    </div>
+    <p class="commnets-title">Comments:</p>
             <% if comments.present? %>
                 <% if comments.any? %>
                     <%= render partial: "comment_card", locals: {comments: comments} %>

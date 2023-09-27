@@ -72,7 +72,12 @@ a {
 .user-totalpost {
   font-size: 15px;
   text-align: right;
-  width: 100%;
+  width: 25%;
+}
+
+.div {
+  display: flex;
+  justify-content: space-between;
 }
 
 .post-text {
@@ -116,7 +121,17 @@ a {
   height: 40px;
   border-radius: 15px;
   padding-left: 20px;
-  padding-top: 20px;
+}
+
+.post {
+  font-size: 1.2rem;
+  font-style: normal;
+}
+
+.commnets-title {
+  font-style: normal;
+  font-weight: 700;
+  padding: 5px 10px;
 }
 
 textarea {
