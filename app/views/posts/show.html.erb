@@ -4,10 +4,27 @@
         <span >by <%= @user.name %></span>
         <span >Comments : <%= @post.comments_counter || 0 %>, Likes : <%= @post.likes_counter || 0 %></span>
 
-    <div class="post-text">
-        <%= @post.text %>
+        <div class="post-text">
+            <%= @post.text %>
+        </div>
+    </div>
+
+
+   <div class="comment-container flex-col">
+        <%= form_with model: @comment, url: user_post_comments_path(user_id: @user.id, post_id:@post.id) do |f| %>
+            <%= f.label :comment %>
+            <%= f.text_area :text, class: "w-100", rows: 10 %>
+    <div class='flex'>
+            <%= f.submit "Add new comment", class: 'btn', disable_with: 'Submiting...'  %>
+        <% end %>
+    
+        <%= form_with model: @like, url: user_post_likes_path(user_id: @user.id, post_id:@post.id)  do |f| %>
+            <%= f.submit "Add like", class: 'btn', disable_with: 'liking...'  %>
+        <% end %>
     </div>
     </div>
+ 
+ 
 
     <%= render partial: "comment_card", locals: {comments: @post.comments} %>
 </section>
