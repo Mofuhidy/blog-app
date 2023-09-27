@@ -18,15 +18,15 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     if @post.save
       flash[:notice] = 'Post created successfully!'
-        redirect_to user_posts_path(current_user)
+      redirect_to user_posts_path(current_user)
     else
       flash[:alert] = 'Something went wrong'
       render 'new'
     end
   end
-  
 
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
