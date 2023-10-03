@@ -231,10 +231,11 @@ textarea {
   gap: 15px;
   margin: 50px;
 }
-.login-form input:not([type="checkbox"]),
-.regst-form input,
+
 .pass-form input,
-.conf-form input {
+.regst-form input,
+.conf-form input,
+.login-form input:not([type="checkbox"]) {
   width: 100%;
   height: 40px;
   border-radius: 15px;
