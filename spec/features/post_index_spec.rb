@@ -56,7 +56,7 @@ RSpec.describe 'User show method ', type: :feature do
     expect(page).to have_content(@posts[0].comments_counter)
   end
 
-  it 'shows a comments count' do
+  it 'shows a likes count' do
     expect(page).to have_content(@posts[0].likes_counter)
   end
 
