@@ -163,6 +163,11 @@ it will run the all the unit test of these project
 - GitHub: [@mofuhidy](https://github.com/Mofuhidy)
 - LinkedIn: [mofuhidy](https://linkedin.com/in/mo-fuhidy)
 
+👤 **Jalloh**
+
+- GitHub: [@aradradev](https://github.com/aradradev)
+- LinkedIn: [Abdourahmane Diallo](https://www.linkedin.com/in/abdul-jalloh)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
