@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   load_and_authorize_resource :user
   load_and_authorize_resource :post, through: :user
-  
-  before_action :set_user, only: [:index, :show]
+
+  before_action :set_user, only: %i[index show]
   def index
     @posts = @user.posts.includes(:comments)
   end
@@ -36,6 +36,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def set_post
     @post = Post.find(params[:id])
   end
@@ -43,6 +44,7 @@ class PostsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
+
   def post_params
     params.require(:post).permit(:title, :text)
   end

@@ -280,3 +280,9 @@ textarea {
   cursor: pointer; /* Cursor style on hover */
   font-size: 16px; /* Font size */
 }
+
+.post-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
