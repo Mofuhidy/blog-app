@@ -10,6 +10,5 @@ class LikesController < ApplicationController
       flash[:alert] = 'Something went wrong!'
       render :new
     end
-    
   end
 end
