@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
     user_url(current_user)
   end
 
+  # Catch all CanCan errors and alert the user of the exception
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
+  end
+
   protected
 
   def update_allowed_parameters
