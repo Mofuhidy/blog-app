@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
     return unless @comment.save
 
-    redirect_to user_post_path(params[:user_id], params[:id]), notice: 'Comment was successfully added!'
+    redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'Comment was successfully added!'
   end
 
   def destroy
