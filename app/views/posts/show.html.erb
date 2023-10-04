@@ -1,6 +1,11 @@
 <section class="container">
     <div class="flex-col post-card">
-        <h1><%= @post.title %></h1>
+        <div class="post-title">
+            <h1><%= @post.title %></h1>
+            <% if @post && can?(:destroy, @post) %>
+                <%= button_to "Delete", user_post_path(user_id: @user.id, id: @post.id), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+        </div>
         <span >by <%= @user.name %></span>
         <span >Comments : <%= @post.comments_counter || 0 %>, Likes : <%= @post.likes_counter || 0 %></span>
 

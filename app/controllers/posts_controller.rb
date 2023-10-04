@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource :user
+  load_and_authorize_resource :post, through: :user
+
+  before_action :set_user, only: %i[index show]
   def index
-    @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @post = Post.includes(:comments).find(params[:id])
     @comment = Comment.new
   end
 
@@ -25,7 +26,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    if post.destroy
+      redirect_to user_posts_path, notice: 'Post was successfully deleted!'
+    else
+      flash.now[:error] = 'Error: Post could not be deleted'
+    end
+  end
+
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :text)
