@@ -6,6 +6,9 @@
                 <div class='comment-name'> 
                  <%= comment.user.name %> : <span><%= comment.text %></span>
                 </div>
+                    <% if @post && comment && can?(:destroy, comment) %>
+                    <%= button_to "Delete", user_post_comment_path(user_id: @user.id, post_id: @post.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?" } %>
+                <% end %>
             </div>
         <% end %>
     <% else %>

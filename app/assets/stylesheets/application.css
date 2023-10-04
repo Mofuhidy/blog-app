@@ -121,8 +121,9 @@ a {
 
 .comment-card {
   display: flex;
-  flex-direction: column;
   gap: 3px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .comment-name {
@@ -267,4 +268,15 @@ textarea {
 
 .actions {
   width: 100%;
+}
+
+.button_to button {
+  background-color: #dc3545; /* Red color */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 15px;
+  margin-block: 5px;
+  cursor: pointer; /* Cursor style on hover */
+  font-size: 16px; /* Font size */
 }
