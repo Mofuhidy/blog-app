@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-    before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create]
 
   def index
     @post = Post.find(params[:post_id])
